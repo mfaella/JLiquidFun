@@ -81,6 +81,10 @@ public class World {
     liquidfunJNI.World_queryAABB(swigCPtr, this, QueryCallback.getCPtr(callback), callback, xmin, ymin, xmax, ymax);
   }
 
+  public void rayCast(RayCastCallback callback, float x1, float y1, float x2, float y2) {
+    liquidfunJNI.World_rayCast(swigCPtr, this, RayCastCallback.getCPtr(callback), callback, x1, y1, x2, y2);
+  }
+
   public Joint createJoint(JointDef def) {
     long cPtr = liquidfunJNI.World_createJoint(swigCPtr, this, JointDef.getCPtr(def), def);
     return (cPtr == 0) ? null : new Joint(cPtr, false);

@@ -78,6 +78,7 @@ public class liquidfunJNI {
   public final static native void PolygonShape_setAsBox__SWIG_0(long jarg1, PolygonShape jarg1_, float jarg2, float jarg3);
   public final static native void PolygonShape_setCentroid(long jarg1, PolygonShape jarg1_, float jarg2, float jarg3);
   public final static native void PolygonShape_setAsBox__SWIG_1(long jarg1, PolygonShape jarg1_, float jarg2, float jarg3, float jarg4, float jarg5, float jarg6);
+  public final static native void PolygonShape_setAsTriangle(long jarg1, PolygonShape jarg1_, float jarg2, float jarg3, float jarg4, float jarg5, float jarg6, float jarg7);
   public final static native void delete_PolygonShape(long jarg1);
   public final static native long new_Color__SWIG_0();
   public final static native long new_Color__SWIG_1(float jarg1, float jarg2, float jarg3);
@@ -231,6 +232,7 @@ public class liquidfunJNI {
   public final static native void World_setGravity(long jarg1, World jarg1_, float jarg2, float jarg3);
   public final static native void World_setContactListener(long jarg1, World jarg1_, long jarg2, ContactListener jarg2_);
   public final static native void World_queryAABB(long jarg1, World jarg1_, long jarg2, QueryCallback jarg2_, float jarg3, float jarg4, float jarg5, float jarg6);
+  public final static native void World_rayCast(long jarg1, World jarg1_, long jarg2, RayCastCallback jarg2_, float jarg3, float jarg4, float jarg5, float jarg6);
   public final static native long World_createJoint(long jarg1, World jarg1_, long jarg2, JointDef jarg2_);
   public final static native long World_createMouseJoint(long jarg1, World jarg1_, long jarg2, MouseJointDef jarg2_);
   public final static native void World_destroyJoint(long jarg1, World jarg1_, long jarg2, Joint jarg2_);
@@ -241,6 +243,13 @@ public class liquidfunJNI {
   public final static native boolean QueryCallback_reportParticleSwigExplicitQueryCallback(long jarg1, QueryCallback jarg1_, long jarg2, ParticleSystem jarg2_, int jarg3);
   public final static native void QueryCallback_director_connect(QueryCallback obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void QueryCallback_change_ownership(QueryCallback obj, long cptr, boolean take_or_release);
+  public final static native long new_RayCastCallback();
+  public final static native void delete_RayCastCallback(long jarg1);
+  public final static native float RayCastCallback_reportFixture(long jarg1, RayCastCallback jarg1_, long jarg2, Fixture jarg2_, long jarg3, Vec2 jarg3_, long jarg4, Vec2 jarg4_, float jarg5);
+  public final static native float RayCastCallback_reportParticle(long jarg1, RayCastCallback jarg1_, long jarg2, ParticleSystem jarg2_, int jarg3, long jarg4, Vec2 jarg4_, long jarg5, Vec2 jarg5_, float jarg6);
+  public final static native float RayCastCallback_reportParticleSwigExplicitRayCastCallback(long jarg1, RayCastCallback jarg1_, long jarg2, ParticleSystem jarg2_, int jarg3, long jarg4, Vec2 jarg4_, long jarg5, Vec2 jarg5_, float jarg6);
+  public final static native void RayCastCallback_director_connect(RayCastCallback obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void RayCastCallback_change_ownership(RayCastCallback obj, long cptr, boolean take_or_release);
   public final static native long new_ContactListener();
   public final static native void delete_ContactListener(long jarg1);
   public final static native void ContactListener_beginContact(long jarg1, ContactListener jarg1_, long jarg2, Contact jarg2_);
@@ -592,6 +601,12 @@ public class liquidfunJNI {
   }
   public static boolean SwigDirector_QueryCallback_reportParticle(QueryCallback jself, long particleSystem, int index) {
     return jself.reportParticle((particleSystem == 0) ? null : new ParticleSystem(particleSystem, false), index);
+  }
+  public static float SwigDirector_RayCastCallback_reportFixture(RayCastCallback jself, long fixture, long point, long normal, float fraction) {
+    return jself.reportFixture((fixture == 0) ? null : new Fixture(fixture, false), new Vec2(point, false), new Vec2(normal, false), fraction);
+  }
+  public static float SwigDirector_RayCastCallback_reportParticle(RayCastCallback jself, long particleSystem, int index, long point, long normal, float fraction) {
+    return jself.reportParticle((particleSystem == 0) ? null : new ParticleSystem(particleSystem, false), index, new Vec2(point, false), new Vec2(normal, false), fraction);
   }
   public static void SwigDirector_ContactListener_beginContact(ContactListener jself, long contact) {
     jself.beginContact((contact == 0) ? null : new Contact(contact, false));
