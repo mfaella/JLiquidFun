@@ -1,5 +1,5 @@
-JLiquidFun
-==========
+JLiquidFun 1.1
+==============
 
 Ready-to-use Java bindings for LiquidFun, including the pre-compiled library for Android architectures.
 
@@ -16,6 +16,11 @@ In your onCreate method, load the library:
 
 Then, you can create a World, add Body objects to it, etc.
 
+Release notes
+-------------
+- **1.1**. May 2021. Added ray casting and triangular shapes.
+- **1.0**. 2016. First release.
+
 Background
 ----------
 LiquidFun adds particle systems to Box2D.
@@ -24,4 +29,4 @@ This project provides more support, adding the basic types of joints and the abi
 
 Notice that a complete Java rewrite of LiquidFun exists, called JBox2D.
 
-This project was developed for educational purposes at the University of Naples "Federico II", Italy.
+This project is developed for educational purposes at the University of Naples "Federico II", Italy.
